@@ -1,26 +1,29 @@
 import {useState,useEffect} from "react";
 import BlogList from "./Blog-List";
 const Home=() =>{
-    const[name,SetName]=useState("oday")
-    const [blogs,setBlogs]=useState([
-        {title:"title1",author:"ahmad",body:"lorem ipsum ....",id:"0"},
-        {title:"title2",author:"oday",body:"lorem ipsum ....",id:"1"},
-        {title:"title3",author:"oday",body:"lorem ipsum ....",id:"2"}
-    ])
-    const HandleDeletelist=(id) => {
-        const NewBlog=()=>blogs.filter((blog)=>blog.id != id);
-        setBlogs(NewBlog)
-    }
+    const[name,SetName]=useState("oday");
+    const [blogs,setBlogs]=useState(null);
+    const [isloading,setisloading]=useState(true);
+
     useEffect(()=>{
-        console.log("use effect run");
-        console.log(blogs);
-    },[name])
+        setTimeout(()=>{
+            fetch("http://localhost:8000/blogs")
+                .then(res=>{
+                    return  res.json()
+                })
+                .then((data)=>{
+                    setBlogs(data);
+                    setisloading(false)
+                },[])
+        },5000)
+    },[])
     return(
         <div className="home">
-           <BlogList blogs={blogs} title="All Blogs List" HandleDeletelist={HandleDeletelist} />
+            {isloading && <div className="loading-container" >Loaging ....</div>}
+            {blogs && <BlogList blogs={blogs} title="All Blogs List" />}
            <button onClick={()=>SetName("alkouz")}>change name</button>
             <p>{name}</p>
         </div>
     );
 }
-export default Home
+export default Home;
