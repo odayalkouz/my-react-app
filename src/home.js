@@ -15,8 +15,8 @@ const Home=() =>{
                     setBlogs(data);
                     setisloading(false)
                 },[])
-        },5000)
-    },[])
+        },1000)
+    },[]);
     return(
         <div className="home">
             {isloading && <div className="loading-container" >Loaging ....</div>}
