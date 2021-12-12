@@ -5,7 +5,6 @@ const useFetch= (url) =>{
     const [data,setData]=useState(null);
     const [isloading,setisloading]=useState(true);
     const [Erros,setErros]=useState(null);
-
     useEffect(()=>{
         setTimeout(()=>{
             fetch(url)
