@@ -1,6 +1,5 @@
 const BlogList = ({blogs,title,hassan}) => {
     // const blogs=props.blogs;
-
     // const title=props.title;
     return(
         <div className="Blog-list">
@@ -9,7 +8,7 @@ const BlogList = ({blogs,title,hassan}) => {
             {blogs.map((blog)=>(
                 <div className="blog-preview" key={blog.id}>
                     <h2>{blog.title}</h2>
-                    <p>written by <b>{blog.author}</b></p>
+                    <p>written by <b>{blog.userId}</b></p>
                     <p>body{blog.body}</p>
                     <p>body{blog.body}</p>
                 </div>
