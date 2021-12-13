@@ -5,7 +5,6 @@ const BlogDetails=()=> {
     const {data,isloading,Erros}=useFetch("http://localhost:8000/blogs/"+ id);
     const history=useHistory();
     const HandleDelete1=()=>{
-        alert();
         fetch("http://localhost:8000/blogs/"+id,{
             method:"DELETE",
         }).then(()=> {
