@@ -7,7 +7,7 @@ const [author,setAuthor]=useState("empty");
 
 const HandleSubmit=(e)=>{
     e.preventDefault();
-}
+};
     return(
         <div className="create">
             <h1>Add New Blog</h1>
@@ -39,4 +39,5 @@ const HandleSubmit=(e)=>{
         </div>
     )
 };
+
 export default Create;
