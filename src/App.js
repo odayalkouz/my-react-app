@@ -7,22 +7,24 @@ function App() {
   return (
       <Router>
         <div className="App">
-          <header><Navbar/></header>
+          <header>
+              <Navbar/>
+          </header>
           <div className="content">
               <Switch>
-              <Route exact path="/">
-                  <Home/>
-              </Route>
-              <Route path="/home">
-                  <Home/>
-              </Route>
-              <Route  path="/Create">
-                  <Create/>
-              </Route>
-              <Route  path="/blogs/:id">
-                  <BlogDetails/>
-              </Route>
-          </Switch>
+                <Route exact path="/">
+                    <Home/>
+                </Route>
+                <Route path="/home">
+                    <Home/>
+                </Route>
+                <Route path="/Create">
+                    <Create/>
+                </Route>
+                <Route path="/blogs/:id">
+                    <BlogDetails/>
+                </Route>
+            </Switch>
           </div>
         </div>
       </Router>
