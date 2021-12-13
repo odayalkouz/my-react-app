@@ -1,19 +1,16 @@
-import {useParams} from "react-router-dom";
+import {useParams ,useHistory} from "react-router-dom";
 import useFetch from "./useFetch";
-import {useHistory} from "react-router-dom";
-
 const BlogDetails=()=> {
     const {id}=useParams();
-    const history=useHistory();
     const {data,isloading,Erros}=useFetch("http://localhost:8000/blogs/"+ id);
-
+    const history=useHistory();
     const HandleDelete1=()=>{
         alert();
-        fetch("http://localhost:8000/blogs/"+data.id,{
+        fetch("http://localhost:8000/blogs/"+id,{
             method:"DELETE",
         }).then(()=> {
             console.log("Blog is deleted");
-           history.push("/")
+            history.push("/")
         });
     };
     return(
@@ -29,6 +26,7 @@ const BlogDetails=()=> {
                 </article>
             )}
         </div>
-    )
+
+        )
 };
 export default BlogDetails;
