@@ -6,7 +6,7 @@ const {data:blogs,isloading,Erros}=useFetch("https://jsonplaceholder.typicode.co
         <div className="home">
             {Erros && <div>{Erros}</div>}
             {isloading && <div className="loading-container" >{isloading}   .Loaging ....</div>}
-            {blogs && <BlogList blogs={blogs} title="All Blogs List" hassan="hassan"/>}
+            {blogs && <BlogList blogs={blogs} title="All Blogs List"/>}
         </div>
     );
 };

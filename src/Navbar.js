@@ -6,7 +6,7 @@ const Navbar= () => {
             <h1>my react Blog</h1>
             <div>
                 <Link to="/home">Home</Link>
-                <Link to="/create"  style={{color:"blue",backgroundColor:"red",borderRadius:"8px"}}>New blog</Link>
+                <Link to="/create"  style={{color:"#FFF",backgroundColor:"red",borderRadius:"8px"}}>New blog</Link>
             </div>
         </nav>
     );
