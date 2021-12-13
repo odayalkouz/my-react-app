@@ -1,9 +1,16 @@
 import {useState ,useEffect} from "react";
+import {useHistory} from "react-router-dom";
+import useFetch from "./useFetch";
+
 const Create=()=>{
+    const {data:blogs}=useFetch("http://localhost:8000/blogs");
+
+
 const [title,setTitle]=useState("");
 const [body,setBody]=useState("");
 const [author,setAuthor]=useState("empty");
 const [isloading,setisloading]=useState(false);
+const history=useHistory();
 
 const HandleSubmit=(e)=>{
     e.preventDefault();
@@ -17,6 +24,8 @@ const HandleSubmit=(e)=>{
     }).then(()=>{
         console.log("add new Blog....");
         setisloading(false);
+        // history.go(-1)
+        history.push("/");
     })
 };
     return(
